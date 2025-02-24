@@ -29,6 +29,53 @@ echo "</pre>";
     <script src="assets/js/jquery-3.7.1.min.js"></script>
 
 
+<head>
+    <!-- Mevcut head içeriği -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    
+    <!-- SweetAlert2 ekleyelim -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
+
+    <!-- Form validasyon için stil -->
+    <style>
+        input.error {
+            border-color: #dc3545 !important;
+            background-color: #fff8f8 !important;
+        }
+
+        input.error:focus {
+            border-color: #dc3545 !important;
+            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+        }
+
+        input.error::placeholder {
+            color: #dc3545;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        input.error {
+            animation: shake 0.6s ease-in-out;
+        }
+
+        .animated {
+            animation-duration: 0.6s;
+            animation-fill-mode: both;
+        }
+
+        .shake {
+            animation-name: shake;
+        }
+    </style>
+</head>
+
+
 
 <script>
 new Vue({
