@@ -3,7 +3,6 @@
 
 <?php
 session_start();
-// Hata ayıklama
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 // Oturum verilerini kontrol et
@@ -18,59 +17,6 @@ if (empty($_SESSION)) {
 
 echo "</pre>";
 ?>
-
-
-
-+ <script>
-+ new Vue({
-+   el: '#app',
-+   data: {
-+     name: '',
-+     surname: '',
-+     identificationNumber: '',
-+     birthdayFull: '',
-+     phone: '',
-+     email: ''
-+   },
-+   methods: {
-+     submitBilgiForm() {
-+       // Form verilerini kontrol et
-+       if (!this.name || !this.surname || !this.identificationNumber || 
-+           !this.birthdayFull || !this.phone || !this.email) {
-+         alert('Lütfen tüm alanları doldurunuz.');
-+         return;
-+       }
-+ 
-+       const formData = new FormData();
-+       formData.append('name', this.name);
-+       formData.append('surname', this.surname);
-+       formData.append('identificationNumber', this.identificationNumber);
-+       formData.append('birthdayFull', this.birthdayFull);
-+       formData.append('phone', this.phone);
-+       formData.append('email', this.email);
-+ 
-+       // Form verilerini gönder
-+       fetch('save_session.php', {
-+         method: 'POST',
-+         body: formData
-+       })
-+       .then(response => response.json())
-+       .then(data => {
-+         if (data.success) {
-+           window.location.href = 'odeme.php';
-+         } else {
-+           alert('Bir hata oluştu: ' + (data.message || 'Bilinmeyen hata'));
-+         }
-+       })
-+       .catch(error => {
-+         console.error('Error:', error);
-+         alert('Bir hata oluştu: ' + error.message);
-+       });
-+     }
-+   }
-+ });
-+ </script>
-
 
 
 <!DOCTYPE html><html lang="tr" "><head><meta http-equiv="origin-trial" content="A/kargTFyk8MR5ueravczef/wIlTkbVk1qXQesp39nV+xNECPdLBVeYffxrM8TmZT6RArWGQVCJ0LRivD7glcAUAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IkRpc2FibGVUaGlyZFBhcnR5U3RvcmFnZVBhcnRpdGlvbmluZzIiLCJleHBpcnkiOjE3NDIzNDIzOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
